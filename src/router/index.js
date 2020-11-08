@@ -1,46 +1,65 @@
-// import Vue from 'vue'
-import Router from 'vue-router'
-import Layout from '@/layout/Layout'
-import Write from '@/components/Write'
-import Login from '@/components/Login'
-import AuthLayout from '@/layout/AuthLayout'
-import Register from '@/components/Register'
+// comment
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-export default new Router({
+Vue.use(VueRouter)
+
+const routes = [
+  {
+    path: '',
+    component: () => import('@/components/note/Login')
+  }
+  // {
+  //   path: '/',
+  //   name: 'index',
+  //   redirect: 'post',
+  //   component: () => import('@/layout/Layout'),
+  //   children: [
+  //     {
+  //       path: 'post',
+  //       name: 'post',
+  //       component: () => import('@/components/Write'),
+  //       meta: {
+  //         requireAuth: false
+  //       }
+  //     }
+  //   ]
+  // },
+  // {
+  //   path: '/',
+  //   redirect: 'login',
+  //   component: () => import('@/layout/AuthLayout'),
+  //   children: [
+  //     {
+  //       path: 'login',
+  //       name: 'login',
+  //       component: () => import('@/components/Login')
+  //     },
+  //     {
+  //       path: 'register',
+  //       name: 'register',
+  //       component: () => import('@/components/Register')
+  //     }
+  //   ]
+  // }
+]
+
+const router = new VueRouter({
   mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'index',
-      redirect: 'post',
-      component: Layout,
-      children: [
-        {
-          path: 'post',
-          name: 'post',
-          component: Write,
-          meta: {
-            requireAuth: false
-          }
-        }
-      ]
-    },
-    {
-      path: '/',
-      redirect: 'login',
-      component: AuthLayout,
-      children: [
-        {
-          path: 'login',
-          name: 'login',
-          component: Login
-        },
-        {
-          path: 'register',
-          name: 'register',
-          component: Register
-        }
-      ]
-    }
-  ]
+  routes
 })
+
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.requireAuth) {
+//     let token = localStorage.getItem('Authorization')
+//     if (token === null || token === '' || token === 'null' || token === undefined) {
+//       next('/login')
+//     } else {
+//       next()
+//     }
+//   } else {
+//     next()
+//   }
+// })
+
+export default router

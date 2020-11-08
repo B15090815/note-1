@@ -67,10 +67,6 @@ export default {
 </script>
 
 <style scoped>
-.el-row {
-  width: 100%;
-}
-
 .note_list, #main {
   overflow: auto;
 }
@@ -81,7 +77,6 @@ export default {
 
 .note_info span {
   font-size: medium;
-  font-family: "Microsoft YaHei";
   font-weight: bolder;
 }
 
@@ -91,7 +86,6 @@ export default {
 }
 
 .note_info p {
-  font-family: "Microsoft YaHei";
   color: #5e6d82;
 }
 

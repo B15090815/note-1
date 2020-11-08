@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: ErCHen
+ * @Date: 2020-10-18 15:07:42
+ * @LastEditTime: 2020-10-21 23:35:17
+ */
 // https://eslint.org/docs/user-guide/configuring
 
 module.exports = {
@@ -24,6 +31,7 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/no-parsing-error': [2, { "x-invalid-end-tag": false }]
   }
 }

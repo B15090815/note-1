@@ -9,3 +9,9 @@ export default {
   name: 'App'
 }
 </script>
+
+<style lang="css" scoped>
+  body {
+    margin: 0;
+  }
+</style>
